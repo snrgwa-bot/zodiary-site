@@ -3,149 +3,153 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zodiary: your sky, one page at a time</title>
-<meta name="description" content="A birth chart from the planets' real positions, and a horoscope for your day, week, month and year. A private diary, and your partner's chart. For iPhone.">
-<meta name="theme-color" content="#a6b3bc">
-<meta property="og:title" content="Zodiary: your sky, one page at a time">
-<meta property="og:description" content="A birth chart from the planets' real positions, and horoscopes as four diary pages. For iPhone.">
-<meta property="og:image" content="https://snrgwa-bot.github.io/zodiary-site/img/day.webp">
-<link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="icon.png">
+<title>Zodiary: the sky on the day you were born</title>
+<meta name="description" content="Zodiary draws your birth chart from the planets' real positions and writes a reading for your day, week, month and year. For iPhone.">
+<meta name="theme-color" content="#15103A">
+<link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="home.css">
-<script src="home.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="next.css">
 </head>
-<body class="home">
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="split">
-  <div class="col">
-    <section class="menu" data-stage="day" data-label="Today">
-      <div class="top"><a href="faq.html">FAQ</a><a class="wordmark" href="./" aria-label="Zodiary">Zodiary</a><a href="privacy.html">Privacy</a></div>
-      <div class="mid">
-        <h1 class="rise">Your sky, one page at a time.</h1>
-        <p class="lead rise" style="--d:.12s">A birth chart from the planets' real positions, and a horoscope for your day, week, month and year.</p>
-        <a class="btn rise" style="--d:.24s" href="#find">Find your page</a>
+<header class="top">
+  <a class="mark" href="./" aria-label="Zodiary home"><img src="icon.png" alt="" width="34" height="34">Zodiary</a>
+  <nav aria-label="Site">
+    <a href="faq.html">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="hero-words">
+    <h1>The sky on the day you were born.</h1>
+    <p class="lede">Zodiary works out where every planet really was, draws your chart, and explains it in plain words. Then it reads the sky for your day, week, month and year.</p>
+
+    <form class="born" id="born" novalidate>
+      <label for="date">Your date of birth</label>
+      <div class="born-row">
+        <input id="date" name="date" type="date" min="1900-01-01" autocomplete="bday">
+        <button type="submit">Show my sky</button>
       </div>
-    </section>
-
-    <section class="block" id="pages" data-stage="day" data-label="Today">
-      <h2 class="rise">Day, week, month, year.</h2>
-      <p class="rise" style="--d:.1s">Open it each morning and turn to the page you want. Today is free. The rest come with Pro.</p>
-      <div class="mods">
-        <article class="mod" data-stage="day" data-label="Today">
-          <div class="proof rise"><img src="img/p-day.webp" width="760" height="329" alt="The Today page in Zodiary: a reading titled Review before you commit" loading="lazy"></div>
-          <div class="rise" style="--d:.1s"><h3>Today</h3><p>A reading for the day, the sky around it, and what is worth a second look. Free.</p></div>
-        </article>
-        <article class="mod" data-stage="week" data-label="Week">
-          <div class="proof rise"><img src="img/p-week.webp" width="760" height="329" alt="The Week page: a reading titled Clear the backlog" loading="lazy"></div>
-          <div class="rise" style="--d:.1s"><h3>Week</h3><p>What the week asks of you, and the moments in the sky that shape it.</p></div>
-        </article>
-        <article class="mod" data-stage="month" data-label="Month">
-          <div class="proof rise"><img src="img/p-month.webp" width="760" height="329" alt="The Month page: a reading titled Endings make room" loading="lazy"></div>
-          <div class="rise" style="--d:.1s"><h3>Month</h3><p>The new moon, the full moon and the turning points between them, each tied to a house in your chart.</p></div>
-        </article>
-        <article class="mod" data-stage="year" data-label="Year">
-          <div class="proof rise"><img src="img/p-year.webp" width="760" height="329" alt="The Year page: a reading titled Build slowly, finish what you start" loading="lazy"></div>
-          <div class="rise" style="--d:.1s"><h3>Year</h3><p>Eclipses, retrogrades and a note on every month, so the year has a shape before it starts.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="block" id="chart" data-stage="chart" data-label="Chart">
-      <h2 class="rise">A chart that is calculated</h2>
-      <p class="rise" style="--d:.1s">Planet positions come from an astronomy engine, accurate to about one arcminute. Your rising sign comes from your birth time, your birthplace and that place's time zone.</p>
-      <p class="rise" style="--d:.2s">Search any city or village, type coordinates, or put a pin on the map.</p>
-      <div class="rise" style="--d:.3s"><div class="fact" aria-hidden="true">1′</div><p class="small">One arcminute is a sixtieth of a degree: the wheel is drawn where the sky really was.</p></div>
-    </section>
-
-    <section class="block" id="us" data-stage="us" data-label="Us">
-      <h2 class="rise">You, and someone</h2>
-      <p class="rise" style="--d:.1s">Add your partner to see their chart, a short reading for the two of you today, and how your signs get along across four areas: talk, feeling, attraction and the long run.</p>
-      <p class="rise" style="--d:.2s">One partner is included in Pro.</p>
-    </section>
-
-    <section class="block" id="diary" data-stage="diary" data-label="Diary">
-      <h2 class="rise">A page of your own</h2>
-      <p class="rise" style="--d:.1s">Pick a mood, write a line. Every day gets a page, and they all wait in a list you can look back through.</p>
-      <p class="rise" style="--d:.2s">Your diary stays on your phone. It goes to the AI only if you ask for a month in review.</p>
-      <div class="mods"><article class="mod"><div class="proof rise"><img src="img/diary-list.webp" width="1100" height="541" alt="The diary list in Zodiary: three days, each with a mood and a note" loading="lazy"></div></article></div>
-    </section>
+      <p class="born-note" id="born-note">Nothing you type leaves this page. It is calculated here, in your browser.</p>
+    </form>
   </div>
 
-  <aside class="stage" aria-hidden="true">
-    <figure data-k="day" data-label="Today" class="on"><img src="img/day.webp" width="880" height="1912" alt=""></figure>
-    <figure data-k="week" data-label="Week"><img src="img/week.webp" width="880" height="1912" alt="" loading="lazy"></figure>
-    <figure data-k="month" data-label="Month"><img src="img/month.webp" width="880" height="1912" alt="" loading="lazy"></figure>
-    <figure data-k="year" data-label="Year"><img src="img/year.webp" width="880" height="1912" alt="" loading="lazy"></figure>
-    <figure data-k="chart" data-label="Chart"><img src="img/chart.webp" width="880" height="1912" alt="" loading="lazy"></figure>
-    <figure data-k="us" data-label="Us"><img src="img/us.webp" width="880" height="1912" alt="" loading="lazy"></figure>
-    <figure data-k="diary" data-label="Diary" class="frag"><img src="img/diary.webp" width="1100" height="636" alt="" loading="lazy"></figure>
-    <div class="cap"><span>Zodiary on iPhone</span><b>Today</b></div>
-  </aside>
-</div>
+  <figure class="sky">
+    <svg id="wheel" viewBox="0 0 400 400" role="img" aria-labelledby="wheel-title"><title id="wheel-title">The sky right now</title></svg>
+    <figcaption>
+      <p class="sky-when" id="sky-when" aria-live="polite">The sky right now</p>
+      <ul class="placements" id="placements"></ul>
+      <ul class="elements" aria-label="What the colours mean">
+        <li><span style="background:var(--fire)"></span>Fire signs</li>
+        <li><span style="background:var(--earth)"></span>Earth signs</li>
+        <li><span style="background:var(--air)"></span>Air signs</li>
+        <li><span style="background:var(--water)"></span>Water signs</li>
+      </ul>
+      <p class="sky-small" id="sky-small">Planets are shown for noon on that day. The app uses your exact time and place, which also gives your rising sign.</p>
+    </figcaption>
+  </figure>
+</section>
 
-<section class="find" id="find" aria-labelledby="find-h">
-  <div class="in">
-    <div>
-      <label for="dob">Your date of birth</label>
-      <input id="dob" type="date" value="1994-03-14" min="1900-01-01" max="2026-12-31">
-      <p class="hint">Born within a day of a sign change? The app uses your birth time and place to be exact.</p>
+<section class="moons" aria-labelledby="moons-h">
+  <h2 id="moons-h">Coming up in the sky</h2>
+  <p class="section-lede">Worked out a moment ago from the same astronomy the app uses.</p>
+  <ol class="moon-row" id="moon-row"></ol>
+</section>
+
+<section class="inside" aria-labelledby="inside-h">
+  <h2 id="inside-h">What you open each morning</h2>
+  <div class="reel" id="reel" tabindex="0" aria-label="Screens from the app. Scroll sideways to see more.">
+    <figure>
+      <img src="img/today.webp" width="720" height="1565" alt="Today screen: a reading for the day with the Moon in Gemini and scores for love, work and energy." loading="lazy">
+      <figcaption><strong>Today</strong>A reading built from the real sky and your own chart. Free, every day.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/chart.webp" width="720" height="1565" alt="Chart screen: a birth chart wheel with planets placed around twelve signs." loading="lazy">
+      <figcaption><strong>Your chart</strong>The wheel, and under it every part explained: who you are, love, work, money, how to grow.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/us.webp" width="720" height="1565" alt="Us screen: two people side by side with a compatibility figure and a shared reading for today." loading="lazy">
+      <figcaption><strong>The two of you</strong>Add your partner to read today together and see how your charts fit.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/planner.webp" width="720" height="1565" alt="Planner screen: a month calendar with the best days for love marked." loading="lazy">
+      <figcaption><strong>Planner</strong>The month ahead, the best days for love, work, money and rest, and your year.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/numbers.webp" width="720" height="1565" alt="Your numbers: life path, birthday number and personal year, each with a short explanation." loading="lazy">
+      <figcaption><strong>More about you</strong>Your numbers, Chinese zodiac, spirit animals and who shares your birthday.</figcaption>
+    </figure>
+  </div>
+  <p class="reel-hint" aria-hidden="true">Swipe sideways for more screens</p>
+</section>
+
+<section class="stays" aria-labelledby="stays-h">
+  <h2 id="stays-h">What stays on your phone, and what travels</h2>
+  <div class="stays-grid">
+    <div class="stay stay-home">
+      <h3>Stays on your phone</h3>
+      <ul>
+        <li>Your name and birth details</li>
+        <li>Your partner's details</li>
+        <li>Your diary notes and moods</li>
+        <li>Your plans</li>
+      </ul>
     </div>
-    <h2 class="h" id="find-h">Your sign</h2>
-  </div>
-  <div class="out">
-    <div class="result" id="result" data-ui aria-live="polite">
-      <p class="sign">Pisces</p>
-      <p class="core">Pisces dissolves boundaries. Intuitive, compassionate and artistic, it feels everything around it.</p>
-      <p class="animal">Wood Dog 狗</p>
-      <p class="atxt">Loyal and fair, protective of your people. Wood adds growth and cooperation.</p>
+    <div class="stay stay-away">
+      <h3>Sent, and where</h3>
+      <dl>
+        <dt>The place you search for</dt><dd>Apple Maps</dd>
+        <dt>A question for the astrologer</dt><dd>Your calculated chart and the question, through our server to OpenAI. Never your name.</dd>
+        <dt>A month in review</dt><dd>That month's diary notes, only when you ask for it.</dd>
+        <dt>Usage statistics</dt><dd>Anonymous, and you can switch them off.</dd>
+      </dl>
     </div>
-    <h2 class="h">Your year</h2>
+    <div class="stay stay-never">
+      <h3>Not in the app at all</h3>
+      <ul>
+        <li>Ads</li>
+        <li>Tracking</li>
+        <li>An account or password</li>
+      </ul>
+    </div>
+  </div>
+  <p class="more"><a href="privacy.html">Read the full privacy policy</a></p>
+</section>
+
+<section class="honest" aria-labelledby="honest-h">
+  <h2 id="honest-h">What is exact, and what is not</h2>
+  <div class="honest-cols">
+    <p>Astrology is not science, and we will not pretend it is. Zodiary is for reflection: a way to look at your day with a little more attention.</p>
+    <p>The part we can be exact about is the sky. Planet positions are calculated with <a href="https://github.com/cosinekitty/astronomy" rel="noopener">Astronomy Engine</a>, to about one sixtieth of a degree, from the date, time and place you give.</p>
+    <p>Today's reading is free. Zodiary Pro opens the week, month and year, your partner, the planner, the diary and the astrologer.</p>
   </div>
 </section>
 
-<section class="block" id="private" data-stage="diary" data-label="Private" style="margin-top:clamp(40px,8svh,100px)">
-  <h2 class="rise">What stays, what travels</h2>
-  <ul class="rows rise" style="--d:.1s">
-    <li role="presentation" style="display:block"><h3>On your phone</h3></li>
-    <li><i></i><b>Birth details</b><span>stays here</span></li>
-    <li><i></i><b>Your partner</b><span>stays here</span></li>
-    <li><i></i><b>Diary notes and moods</b><span>stays here</span></li>
-    <li role="presentation" style="display:block"><h3>Sent away</h3></li>
-    <li class="out"><i></i><b>Place search</b><span>Apple Maps</span></li>
-    <li class="out"><i></i><b>Ask the astrologer</b><span>chart only, no name</span></li>
-    <li class="out"><i></i><b>Usage statistics</b><span>anonymous, optional</span></li>
-    <li role="presentation" style="display:block"><h3>Never</h3></li>
-    <li class="no"><i></i><b>Ads and tracking</b><span>none</span></li>
-    <li class="no"><i></i><b>An account</b><span>not needed</span></li>
-  </ul>
-  <p class="small rise" style="--d:.2s;margin-top:2em"><a href="privacy.html">Read the full privacy policy</a></p>
+<section class="dawn" aria-labelledby="dawn-h">
+  <h2 id="dawn-h">Open your first page.</h2>
+  <p>Zodiary is coming to iPhone. Send us a note and we will write back on launch day.</p>
+  <a class="cta" href="mailto:essentialdevteam@gmail.com?subject=Tell%20me%20when%20Zodiary%20launches">Tell me at launch</a>
 </section>
 
-<section class="letter" aria-label="A note from the makers">
-  <p class="rise">Astrology is not science, and we will not pretend it is. Zodiary is for reflection: a way to look at your day with a little more attention.</p>
-  <p class="rise" style="--d:.08s">The part we can be exact about is the sky. Planet positions are calculated with <mark>Astronomy Engine</mark>, to about one arcminute, from the date, time and place you give.</p>
-  <p class="rise" style="--d:.16s">The words are ours, and some are written by an AI model from your chart. We send it your calculated chart and your question, never your name. Your diary goes only when you ask for a month in review.</p>
-  <p class="rise" style="--d:.24s">Today is free. Pro opens the week, the month, the year, your partner, the planner, the diary and the astrologer. Questions are welcome at <a href="mailto:essentialdevteam@gmail.com">essentialdevteam@gmail.com</a>.</p>
-  <p class="sign-off rise" style="--d:.32s">Essential Dev Team</p>
-  <p class="role rise" style="--d:.36s">The people who make Zodiary</p>
-</section>
-
-<section class="close" aria-labelledby="close-h">
-  <div class="l">
-    <h2 id="close-h" class="rise">Open your first page.</h2>
-    <p class="rise" style="--d:.1s">Zodiary is coming to the iPhone. Send us a note and we will write back on launch day.</p>
-    <a class="btn rise" style="--d:.2s" href="mailto:essentialdevteam@gmail.com?subject=Zodiary%20launch&amp;body=Please%20tell%20me%20when%20Zodiary%20is%20on%20the%20App%20Store.">Tell me at launch</a>
-  </div>
-  <div class="r"><video id="loop" src="img/pages.mp4" poster="img/pages-poster.webp" width="540" height="1174" muted loop playsinline preload="metadata" aria-label="Zodiary turning from the Today page to the Week, Month and Year pages"></video></div>
-</section>
+</main>
 
 <footer class="foot">
-  <span>A horoscope diary for iPhone</span>
-  <nav aria-label="Footer"><a href="faq.html">FAQ &amp; Support</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mailto:essentialdevteam@gmail.com">Contact</a></nav>
-  <span>© 2026 Essential Dev Team</span>
+  <p>Zodiary, a horoscope diary for iPhone</p>
+  <nav aria-label="Footer">
+    <a href="faq.html">FAQ and support</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:essentialdevteam@gmail.com">Contact</a>
+  </nav>
+  <p class="foot-small">© 2026 Essential Dev Team. Planet positions by Astronomy Engine (MIT licence).</p>
 </footer>
 
+<script src="vendor/astronomy.browser.min.js" defer></script>
+<script src="next.js" defer></script>
 </body>
 </html>
